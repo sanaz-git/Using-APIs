@@ -20,3 +20,4 @@ function checkDoubleDigits(number) {
   }
 
   checkDoubleDigits(9);
+  checkDoubleDigits(100);
