@@ -9,7 +9,6 @@
 const url = "https://www.randomuser.me/api";
 function requestWithXHR(url) {
 
-  const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
   const xhr = new XMLHttpRequest();
 
   xhr.open("GET", url, true);
@@ -19,10 +18,9 @@ function requestWithXHR(url) {
   xhr.onload = function () {
     if (xhr.status == 200) {
       let response = JSON.parse(xhr.response);
-      console.log(`server response :${response.results[0].gender}, ${response.results[0].name.title}
-       ${response.results[0].name.first} ${response.results[0].name.last}, from ${response.results[0].location.country}.` );
+      console.log(response.results[0].name.first);
     }else{
-        console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+        console.log(`Error ${xhr.status}: ${xhr.response}`);
     }
   };
 
@@ -33,16 +31,29 @@ function requestWithXHR(url) {
   };
 }
 
-//axios
+// axios
 function requestWithAxios(url) {
-  const axios = require("axios");
+
   axios
     .get(url)
-    .then((response) => console.log(`server response :${response.results[0].gender}, ${response.results[0].name.title}
-    ${response.results[0].name.first} ${response.results[0].name.last}, from ${response.results[0].location.country}.`))
-    .catch((error) => console.lpg(error));
+    .then((response) => console.log(response.data.results[0].name.first))
+    .catch((error) => console.log(`error : ${error}`));
+}
+
+function fetchRequest(url){
+    fetch(url)
+    .then(response => {
+        return response.json();
+    })
+    .then(data =>{
+        console.log(data)
+    })
+    .catch(error =>{
+        console.log(error)
+    })
 }
 
 requestWithXHR(url);
-requestWithAxios(url);
+// requestWithAxios(url);
+// fetchRequest(url)
 
