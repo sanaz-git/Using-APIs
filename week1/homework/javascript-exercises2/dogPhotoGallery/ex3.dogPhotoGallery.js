@@ -12,11 +12,10 @@
 // Incorporate error handling: log to the console the error message
 
 const url = "https://dog.ceo/api/breeds/image/random";
-const imgEl = document.getElementById("imageXHR");
 const select = document.getElementById("btn1");
-const ulEl =document.getElementById("ulEl")
-const liEl =document.createElement("li")
+const ulEl =document.createElement("ul")
 
+//XMlHttpRequest
 
 select.addEventListener("click", () => {
     const xhr = new XMLHttpRequest();
@@ -28,9 +27,12 @@ select.addEventListener("click", () => {
             console.log(`Error ${xhr.status}: ${xhr.statusText}`);
         } else {
             const response = JSON.parse(xhr.response);
-            console.log(response)
-           imgEl.src = response.message
-            
+            console.log(response) 
+            const liEl = document.createElement('li');
+            const imgEl = document.createElement('img');
+            imgEl.src = `${response.message}`;
+            liEl.appendChild(imgEl);
+            ulEl.appendChild(liEl);
         }
         xhr.onerror = function () {
             if (xhr.status != 200) {
@@ -39,3 +41,24 @@ select.addEventListener("click", () => {
         };
         };
 });
+
+//Axios
+select.addEventListener("click", () => {
+  axios
+      .get(url)
+      .then(response => {
+          console.log(response);
+          const imgEl2 = document.getElementById("imageaxios");
+          const liEl = document.createElement('li');
+          const imgEl = document.createElement('img');
+          imgEl.src = response.data.img;
+          liEl.appendChild(imgEl);
+          ulEl.appendChild(liEl);
+      })
+
+  .catch((error) => console.log(`error : ${error}`));
+})
+
+
+
+
