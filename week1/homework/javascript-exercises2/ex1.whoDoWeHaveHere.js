@@ -55,5 +55,5 @@ function fetchRequest(url) {
 }
 
 requestWithXHR(url);
-requestWithAxios(url);
-fetchRequest(url)
+// requestWithAxios(url);
+// fetchRequest(url)
