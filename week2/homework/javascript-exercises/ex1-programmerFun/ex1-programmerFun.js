@@ -1,54 +1,103 @@
-// Exercise 1: Programmer Fun
-// Complete the function requestData() using fetch() to make a request to the url passed to it as an argument.
-//  The function should return a promise. Make sure that the promise is rejected in case of HTTP or network errors.
-// Notice that the function main() calls requestData(), passing it the url https://xkcd.now.sh/?comic=latest.
-// Try and run the code in the browser and open the browser's console to inspect the data returned from the request.
-// Next, complete the function renderImage() to render an image as an <img> element appended to the document's body,
-// using the data returned from the API.
-// Complete the function renderError() to render any errors as an <h1> element appended to the document's body.
-// Refactor the main() function to use async/await.
-// Test error handling, for instance, by temporarily changing the .sh in the url with .shx. There is no server at the modified url,
-//  therefore this should result in a network (DNS) error.
+// Complete the four functions provided in the starter `index.js` file:
+
+// `fetchData`: In the `fetchData` function, make use of `fetch` and its Promise 
+//   syntax in order to get the data from the public API. Errors (HTTP or network 
+//   errors) should be logged to the console.
+
+// `fetchAndPopulatePokemons`: Use `fetchData()` to load the pokemon data from the 
+//   public API and populate the `<select>` element in the DOM.
+
+// `fetchImage`: Use `fetchData()` to fetch the selected image and update the 
+//   `<img>` element in the DOM.
+
+// `main`: The `main` function orchestrates the other functions. The `main` 
+//   function should be executed when the window has finished loading.
+
+// Use async/await and try/catch to handle promises.
+
+// Try and avoid using global variables. As much as possible, try and use function 
+// parameters and return values to pass data back and forth.
 
 
-const url = 'https://xkcd.now.sh/?comic=latest';
+function main(){
+  const url = 'https://pokeapi.co/api/v2/pokemon/';
+// const url = `https://pokeapi.co/api/v2/pokemon/?limit=20&offset=20`
 
-function requestData(url) {
-  fetch(url)
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      console.log('Data', data);
-      return data;
-    })
+
+function fetchData(url) {
+    fetch(url)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data', data);
+            return data
+        })
+
     .catch(error => {
-      console.log('err', error);
-    });
+        console.log("err", error);
+    })
 }
 
-function renderImage(data) {
-  const img = document.createElement("img");
-  img.src = data.img;
-  document.body.appendChild(img);
+//h1 element
+const h1 = document.createElement('h1')
+document.body.appendChild(h1)
+h1.textContent = "Pokemon Images"
+
+//buttons element
+const btn1 = document.createElement('button')
+document.body.appendChild(btn1)
+// btn1.setAttribute('style', "padding=50px")
+btn1.textContent = 'Get Pokemon'
+
+//select element
+const select = document.createElement('select')
+document.body.appendChild(select)
+select.textContent = 'Choose pokemon'
+
+//image element
+const img = document.createElement('img');
+document.body.appendChild(img);
+
+
+
+//When button is clicked
+btn1.addEventListener('click', () => {
+ fetchData(url)
+})
+
+// Add options to select
+function addOptionsToSelect(){
+  data.results.forEach(element => {
+  const option = document.createElement('option')
+  option.value = element.name;
+  option.innerHTML = element.name;
+  select.appendChild(option)
+  });  
 }
 
-function renderError(error) {
-  const h1 = document.createElement("h1");
-  h1.innerHTML =`Oops, something went wrong! "${error.message}"`;
-  document.body.appendChild(h1);
-}
+select.addEventListener('input', () => {
+  data.results.forEach(element => {
+    if(select.value == element.name){
+       const imgURL = element.url;
+        fetch(imgURL)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+           img.src = data.sprites.back_default;
+            document.body.appendChild(img);
+        })
 
-async function main(){
-    try {
-        const fetchedData = await fetch(url)
-        const parsedData = await fetchedData.json();
-        renderImage(parsedData);
+    .catch(error => {
+        console.log("err", error);
+    })
     }
+  })
 
-catch(error){
-    renderError(error)
-}
+})
 }
 
 window.addEventListener('load', main);
+
+
