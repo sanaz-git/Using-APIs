@@ -1,4 +1,12 @@
-function main(){
+const select = document.getElementById("select");
+const repository = document.getElementById("repository");
+const description = document.getElementById("Description");
+const forks = document.getElementById("Forks");
+const updated = document.getElementById("Updated");
+const card = document.getElementById("card")
+
+function main() {
+
   const placeholderRepos = [
     {
       name: 'SampleRepo1',
@@ -20,6 +28,18 @@ function main(){
       updated: '2020-05-27 12:00:00',
     },
   ];
+
+  for (let i = 0; i < select.clientHeight; i++) {
+    if (select.value == placeholderRepos[i].name) {
+      card.style.display = 'flex';
+      repository.innerHTML = placeholderRepos[i].name;
+      description.innerHTML = placeholderRepos[i].description;
+      forks.innerHTML = placeholderRepos[i].forks;
+      updated.innerHTML = placeholderRepos[i].updated;
+    }
+
+    select.addEventListener('click', main)
+  }
 }
 
 main();
