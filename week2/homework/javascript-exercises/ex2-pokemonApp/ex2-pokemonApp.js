@@ -20,6 +20,8 @@
 
 window.addEventListener("load", main);
 
+document.body.setAttribute('style', 'background:#F2D600 ; text-align: center; margin-top: 5%; font-family: Arial, Helvetica, sans-serif');
+
 function main() {
   const url = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -41,6 +43,8 @@ function main() {
   //image element
   const img = document.createElement("img");
   document.body.appendChild(img);
+  img.setAttribute('style', 'display: block; width: 20%; margin-left: auto; margin-right: auto');
+
 
   //When button is clicked
   btn1.addEventListener("click", fetchAndPopulatePokemon);
