@@ -11,14 +11,21 @@
 // After receiving the data, append to the <ul> a <li> that contains an <img> element with the dog image
 // Incorporate error handling: log to the console the error message
 
+document.body.setAttribute('style', 'background:#5A69DA; text-align : center;margin-top: 5%; font-family: Arial, Helvetica, sans-serif ')
+
 const url = "https://dog.ceo/api/breeds/image/random";
 const select1 = document.getElementById("btn1");
 const select2 = document.getElementById("btn2");
 const ulEl = document.createElement("ulEl");
-const imgSize = '300px';
+const imgSize = '335px';
 ulEl.style.display = 'flex';
 ulEl.style.flexWrap = 'wrap';
 
+
+btn1.setAttribute('style', 'background-color: white; font-family: Arial, Helvetica, sans-serif ; font-size: 15px; width: 160px; height: 40px; padding: 5px; margin: 15px; border-radius: 10px; border: none; display: inline-block ');
+btn2.setAttribute('style', 'background-color: white; font-family: Arial, Helvetica, sans-serif ; font-size: 15px; width: 160px; height: 40px; padding: 5px; margin: 15px; border-radius: 10px; border: none;  ');
+
+ 
 //XMlHttpRequest
 
 select1.addEventListener("click", () => {
