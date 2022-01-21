@@ -42,21 +42,21 @@ async function main() {
   topic1.textContent = 'repository'
   section2.appendChild(topic1)
 
-  const repository = document.createElement('repository')
-  repository.textContent = ''
-  section2.appendChild(repository)
+  // const repository = document.createElement('repository')
+  // repository.textContent = ''
+  // section2.appendChild(repository)
 
-  const description = document.createElement('description')
-  description.textContent = ''
-  section2.appendChild(description)
+  // const description = document.createElement('description')
+  // description.textContent = ''
+  // section2.appendChild(description)
 
-  const forks = document.createElement('forks')
-  forks.textContent = ''
-  section2.appendChild(forks)
+  // const forks = document.createElement('forks')
+  // forks.textContent = ''
+  // section2.appendChild(forks)
 
-  const updated = document.createElement('updated')
-  updated.textContent = ''
-  section2.appendChild(updated)
+  // const updated = document.createElement('updated')
+  // updated.textContent = ''
+  // section2.appendChild(updated)
 
 
   //create section3
@@ -75,11 +75,17 @@ async function main() {
 
   populateSelect(listData)
 
-selectBox.addEventListener('input', (e) =>{
-  console.log(e)
-
+selectBox.addEventListener('input', async(e) =>{
+  data.results.forEach((element) => {
+    if (element.name == e.target.value) {
+      repository = element.name;
+      description = element.description;
+      forks = element.forks_count;
+      updated = element.updated_at;
+    }
+  })
  
-} )
+})
 
 
 
