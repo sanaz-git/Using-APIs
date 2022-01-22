@@ -93,20 +93,29 @@ async function main() {
       forks.textContent = element.forks;
       updated.textContent = element.updated_at;
 
-      const url2 = element.contribution_url    
+      const topic5 = document.createElement('h2')
+      topic5.textContent = 'contributions'
+      section3.appendChild(topic5)
+
+      let url2 ="";
+      url2 = element.url; 
+
 
     }
   });
-  fetchContributions(url2);
+  fetchContributions(url2)
 });
 
 async function fetchContributions(url){
   try{
     const data = await fetchData(url);
-    const topic5 = document.createElement('h2')
-    topic5.textContent = 'contributions'
-    section3.appendChild(topic5)
+    const img2 = document.createElement('img');
+    section3.appendChild(img2);
+    img2.src = listData.avatar_url;
+    img2.setAttribute('style', 'display: block; ');
 
+    
+    
 
   } catch(error){
     console.log(error)
@@ -136,6 +145,3 @@ async function fetchData(url) {
   }
 }
 
-// const topic2 = document.createElement('h2');
-      // topic2.textContent = 'contribution';
-      // section3.appendChild(topic2);
