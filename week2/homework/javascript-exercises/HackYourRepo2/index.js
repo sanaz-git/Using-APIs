@@ -27,6 +27,10 @@ async function main() {
   selectBox.classList.add('selectClass')
   section1.appendChild(selectBox)
 
+  const option = document.createElement('option');
+  selectBox.appendChild(option);
+  option.textContent = '-- Choose an Option --';
+
 
   //create div2
   // const div2 = document.createElement('div')
@@ -38,35 +42,37 @@ async function main() {
   section2.classList.add('repo');
   div1.appendChild(section2);
 
+  // section2.style.display = 'none'
+
+  // details of section2
   const topic1 = document.createElement('h2');
-  topic1.textContent = 'repository'
-  section2.appendChild(topic1)
+  topic1.textContent = 'repository: '
+  section2.appendChild(topic1);;
+  const repository = document.createElement('span')
+  topic1.appendChild(repository);
+  
+  const topic2 = document.createElement('h2');
+  topic2.textContent = 'description: '
+  section2.appendChild(topic2);;
+  const description = document.createElement('span')
+  topic2.appendChild(description);
+  
+  const topic3 = document.createElement('h2');
+  topic3.textContent = 'forks: '
+  section2.appendChild(topic3);;
+  const forks = document.createElement('span')
+  topic3.appendChild(forks);
 
-  // const repository = document.createElement('repository')
-  // repository.textContent = ''
-  // section2.appendChild(repository)
-
-  // const description = document.createElement('description')
-  // description.textContent = ''
-  // section2.appendChild(description)
-
-  // const forks = document.createElement('forks')
-  // forks.textContent = ''
-  // section2.appendChild(forks)
-
-  // const updated = document.createElement('updated')
-  // updated.textContent = ''
-  // section2.appendChild(updated)
-
+  const topic4 = document.createElement('h2');
+  topic4.textContent = 'updated: '
+  section2.appendChild(topic4);;
+  const updated = document.createElement('span')
+  topic4.appendChild(updated);
 
   //create section3
   const section3 = document.createElement('section');
   section3.classList.add('contribution');
   div1.appendChild(section3);
-
-  const topic2 = document.createElement('h2');
-  topic2.textContent = 'contribution'
-  section3.appendChild(topic2)
 
   const url = 'https://api.github.com/orgs/HackYourFuture/repos?per_page=100';
 
@@ -75,26 +81,40 @@ async function main() {
 
   populateSelect(listData)
 
-selectBox.addEventListener('input', async(e) =>{
-  data.results.forEach((element) => {
+  selectBox.addEventListener('input', (e) =>{
+  
+ listData.forEach((element) => {
     if (element.name == e.target.value) {
-      repository = element.name;
-      description = element.description;
-      forks = element.forks_count;
-      updated = element.updated_at;
+
+      section2.style.display = 'block'
+
+      repository.textContent = element.name;
+      description.textContent = element.description;
+      forks.textContent = element.forks;
+      updated.textContent = element.updated_at;
+
+      const url2 = element.contribution_url    
+
     }
-  })
- 
-})
+  });
+  fetchContributions(url2);
+});
+
+async function fetchContributions(url){
+  try{
+    const data = await fetchData(url);
+    const topic5 = document.createElement('h2')
+    topic5.textContent = 'contributions'
+    section3.appendChild(topic5)
 
 
+  } catch(error){
+    console.log(error)
+  }
+}
 
 
-
-
-
-  function populateSelect(listData) {
-     
+  function populateSelect(listData) {    
     listData.forEach (element => {
       const option = document.createElement('option');
       option.value = element.name;
@@ -116,3 +136,6 @@ async function fetchData(url) {
   }
 }
 
+// const topic2 = document.createElement('h2');
+      // topic2.textContent = 'contribution';
+      // section3.appendChild(topic2);
