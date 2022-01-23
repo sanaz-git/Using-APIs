@@ -98,7 +98,8 @@ async function main() {
       section3.appendChild(topic5)
 
       let url2 ="";
-      url2 = element.url; 
+      url2 = element.contributors_url; 
+      
 
 
     }
@@ -106,17 +107,27 @@ async function main() {
   fetchContributions(url2)
 });
 
-async function fetchContributions(url){
+async function fetchContributions(url2){
   try{
-    const data = await fetchData(url);
+    const data = await fetchData(url2);
+    data.forEach(element => {
+    const contDetails = document.createElement('div')
+    section3.appendChild(contDetails);
+
     const img2 = document.createElement('img');
-    section3.appendChild(img2);
-    img2.src = listData.avatar_url;
+    img2.src = element.avatar_url;
     img2.setAttribute('style', 'display: block; ');
+    contDetails.appendChild(img2);
 
-    
-    
+    const contName = document.createElement('h2');
+    contName.textContent = element.login;
+    contDetails.appendChild(contName);
 
+    const contNum = document.createElement('h2');
+    contNum.textContent = element.contributions
+    contDetails.appendChild(contNum);
+   
+    })  
   } catch(error){
     console.log(error)
   }
@@ -137,6 +148,7 @@ async function fetchContributions(url){
 
 async function fetchData(url) {
   try {
+    
     const response = await fetch(url);
     const data = await response.json();
     return data
@@ -145,3 +157,31 @@ async function fetchData(url) {
   }
 }
 
+// function fetchContributions(url2){
+//   fetch(url2)
+//       .then(response => response.json())
+//       .then(data => {
+//         const data = await fetchData(url2);
+//         data.forEach(element => {
+//         const contDetails = document.createElement('div')
+//         section3.appendChild(contDetails);
+
+//         const img2 = document.createElement('img');
+//         img2.src = element.avatar_url;
+//         img2.setAttribute('style', 'display: block; ');
+//         contDetails.appendChild(img2);
+
+//         const contName = document.createElement('h2');
+//         contName.textContent = element.login;
+//         contDetails.appendChild(contName);
+
+//         const contNum = document.createElement('h2');
+//         contNum.textContent = element.contributions
+//         contDetails.appendChild(contNum);
+//         })  
+//       })
+//      .catch(error =>{
+//        console.log(error)
+//      })
+      
+// }
