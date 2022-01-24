@@ -43,8 +43,6 @@ async function main() {
   section2.classList.add('repo');
   div2.appendChild(section2);
 
-  section2.style.display = 'block'
-
   // details of section2
   const topic1 = document.createElement('h2');
   topic1.textContent = 'repository: '
@@ -75,8 +73,6 @@ async function main() {
   section3.classList.add('contribution');
   div2.appendChild(section3);
 
-  section3.style.display = 'block'
-
   const url = 'https://api.github.com/orgs/HackYourFuture/repos?per_page=100';
 
   const listData = await fetchData(url);
@@ -86,9 +82,9 @@ async function main() {
 
   selectBox.addEventListener('input', (e) =>{
   
-    let url2 ="";
+  let url2 ="";
 
- listData.forEach((element) => {
+  listData.forEach((element) => {
     if (element.name == e.target.value) {
 
       repository.textContent = element.name;
@@ -99,12 +95,9 @@ async function main() {
       const topic5 = document.createElement('h2')
       topic5.textContent = 'contributions'
       section3.appendChild(topic5)
-
     
       url2 = element.contributors_url; 
       
-
-
     }
   });
   fetchContributions(url2)
@@ -128,12 +121,12 @@ async function fetchContributions(url2){
 
     const contName = document.createElement('h2');
     contName.textContent = element.login;
-    contName.setAttribute('style', ' width: 100px; text-align:center; height:25px; margin-top:20px; border-style: groove;')
+    contName.setAttribute('style', ' width: 100px; text-align:center; height:25px; margin-top:20px; border-style: groove; border-radius:10%')
     contDetails.appendChild(contName);
 
     const contNum = document.createElement('h2');
     contNum.textContent = element.contributions
-    contNum.setAttribute('style', 'background: white; color: black; text-align: center; width: 25px; height:25px; margin-top:20px; border-style: groove; margin-bottom: 10px; margin-left: 60px; margin-right:20px')
+    contNum.setAttribute('style', 'background: white; color: black; text-align: center; width: 25px; height:25px; margin-top:20px; border-style: groove; border-radius:10% ; margin-bottom: 10px; margin-left: 60px; margin-right:20px')
     contDetails.appendChild(contNum);
    
     })  
@@ -141,7 +134,6 @@ async function fetchContributions(url2){
     console.log(error)
   }
 }
-
 
   function populateSelect(listData) {    
     listData.forEach (element => {
@@ -154,14 +146,15 @@ async function fetchContributions(url2){
   }
 
    
-
 async function fetchData(url) {
-  try {
-    
+  try {    
     const response = await fetch(url);
     const data = await response.json();
     return data
   } catch (error) {
-    console.log(error);
+    const err = document.createElement('h2');
+    err.setAttribute('style', 'background-color: #4a707a;width: 400px; height: 100px;padding: 15px;position: absolute;top: 50%;left: 50%;margin: -70px 0 0 -200px; color: white; font-family: "Space Mono", monospace; text-align: center ')
+    err.textContent = `network request failed ! "${error.message}"`;
+    document.body.appendChild(err);
   }
 }
