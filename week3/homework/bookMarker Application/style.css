@@ -1,0 +1,119 @@
+#container {
+    background-color: black;
+    opacity: 0.9;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 1s;
+    font-family: 'Courier New', Courier, monospace;
+    transform: scale(0);
+}
+
+#close {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 50px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+#close:hover {
+    font-size: 90px;
+    transition: 1s;
+    transform: rotate(360deg)
+}
+
+.form {
+    background-color: azure;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 100px auto;
+    width: 30vw;
+    padding: 30px;
+    box-shadow: 10px 10px 5px gray;
+    border-radius: 15px;
+    color: gray;
+}
+
+input {
+    width: 28vw;
+    padding: 10px;
+    border: none;
+    box-shadow: 10px 10px 20px lightgray;
+}
+
+input:focus {
+    outline: none;
+}
+
+.button {
+    text-align: center;
+}
+
+#list {
+    width: 15vw;
+    background-color: rgb(44, 159, 253);
+    padding: 10px;
+    font-size: 20px;
+    border: 3px solid rgb(70, 177, 248);
+    border-radius: 5px;
+    color: lightgray;
+    cursor: pointer;
+}
+
+#submit {
+    background-color: rgb(250, 65, 65);
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    color: lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submit:focus {
+    background-color: aquamarine;
+    color: white;
+    outline: none;
+}
+
+#light {
+    background-color: rgb(255, 83, 83);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: none;
+    margin: auto;
+}
+
+#yourSite div {
+    width: 40vw;
+    background-color: gray;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid azure;
+}
+
+#yourSite a {
+    text-decoration: none;
+    background-color: rgb(44, 159, 253);
+    border: 3px solid rgb(70, 177, 248);
+    font-size: 20px;
+    color: lightgray;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+#yoursite button {
+    background-color: rgb(250, 65, 65);
+    font-size: 20px;
+    border: none;
+    color: lightgray;
+    margin-left: 10px;
+    cursor: pointer;
+}

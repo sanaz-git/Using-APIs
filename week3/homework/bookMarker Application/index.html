@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site marker</title>
+    <link rel="stylesheet" type='text/css' href="style.css">
+</head>
+
+<body onload='Display()'>
+    <div id='light'></div>
+    <div class='form'>
+        <h3>please insert the url and the name for the web page</h3>
+        <form id='form' action="" method=''>
+            <p>
+                <input type="text" id='websiteName' placeholder='Name' name='websiteName'>
+            </p>
+            <p>
+                <input type="url" id='URL' placeholder='URL' name='url'>
+            </p>
+            <p class='button'>
+                <button type='submit' id='submit'>Insert</button>
+                <button type='button' id='list'>Check your list</button>
+            </p>
+        </form>
+        <div id="container">
+            <p><a href="#" id='close'>&times;</a></p>
+            <div id='yourSite'>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+
+</html>
