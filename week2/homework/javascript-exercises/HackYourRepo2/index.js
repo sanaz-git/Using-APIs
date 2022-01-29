@@ -81,7 +81,7 @@ async function main() {
   populateSelect(listData)
 
   selectBox.addEventListener('input', (e) =>{
-  
+  section3.innerHTML = '';
   let url2 ="";
 
   listData.forEach((element) => {
@@ -94,6 +94,8 @@ async function main() {
 
       const topic5 = document.createElement('h2')
       topic5.textContent = 'contributions'
+      topic5.setAttribute('style' , 'padding:10px; border:1px solid lightgray; text-align:center; font-size:20px; color:gray')
+      
       section3.appendChild(topic5)
     
       url2 = element.contributors_url; 
@@ -107,7 +109,9 @@ async function fetchContributions(url2){
   try{
     const data = await fetchData(url2);
     data.forEach(element => {
-    
+
+      // contDetails.parentNode.removeChild(contDetails)
+
     div2.style.display= 'block' 
 
     const contDetails = document.createElement('div')
@@ -116,7 +120,7 @@ async function fetchContributions(url2){
 
     const img2 = document.createElement('img');
     img2.src = element.avatar_url;
-    img2.setAttribute('style', 'position: relative; padding-top:5px; width: 70px; height: 70px; border-radius:50% ');
+    img2.setAttribute('style', 'position: relative; padding-top:5px; width: 20%; height: 20%; border-radius:50% ');
     contDetails.appendChild(img2);
 
     const contName = document.createElement('h2');
