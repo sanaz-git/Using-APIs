@@ -22,8 +22,7 @@ class Person {
       this.children = children;
       this.job = job;
       this.eat = eat;
-      this.hobby = hobby;
-  
+      this.hobby = hobby; 
     }
   }
   
