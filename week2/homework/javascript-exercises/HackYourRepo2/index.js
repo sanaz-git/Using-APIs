@@ -125,12 +125,12 @@ async function fetchContributions(url2){
 
     const contName = document.createElement('h2');
     contName.textContent = element.login;
-    contName.setAttribute('style', 'width:150px; text-align:center; height:25px; margin-top:20px; border-style: groove; border-radius:10%')
+    contName.setAttribute('style', 'width:150px; text-align:center; height:25px; margin-top:20px; margin-left:30px; border-style: groove; border-radius:10%')
     contDetails.appendChild(contName);
 
     const contNum = document.createElement('h2');
     contNum.textContent = element.contributions
-    contNum.setAttribute('style', 'background: white; color: black; text-align: center; width: 30px; height:25px; margin-top:20px; border-style: groove; border-radius:10% ; margin-bottom: 10px; margin-left: 60px; margin-right:35px')
+    contNum.setAttribute('style', 'background: white; color: black; text-align: center; width: 30px; height:25px; margin-top:20px; border-style: groove; border-radius:10% ; margin-bottom: 10px; margin-left: 50px; margin-right:5px')
     contDetails.appendChild(contNum);
    
     })  
