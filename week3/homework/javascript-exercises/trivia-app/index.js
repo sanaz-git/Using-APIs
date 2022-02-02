@@ -40,21 +40,6 @@ async function main() {
             questions.classList.add('questions');
             questions.textContent = element.question;
             section2.appendChild(questions);
-            questions.addEventListener('click', () => {
-                answer.setAttribute('style', 'display:block;')
-            })
-
-
-            // questions.addEventListener('input', () => {
-            //         if (answer.textContent == element.correct_answer) {
-            //             answer.setAttribute('style', 'display:none;')
-            //         }
-            //     })
-            // else {
-            //         answer.setAttribute('style', 'display:block;')
-            //     }
-
-            // })
 
             //create answer 
             const answer = document.createElement('h1');
@@ -62,6 +47,17 @@ async function main() {
             answer.textContent = element.correct_answer;
             section2.appendChild(answer);
             answer.setAttribute('style', 'display:none');
+            
+            //show and hide answer
+            questions.addEventListener('click', () => {
+                    if (answer.style.display == 'block') {
+                        answer.style.display = 'none'
+                    }else{
+                      answer.style.display= 'block'
+                    }
+                })
+          
+            
         });
 
 
