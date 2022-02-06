@@ -1,17 +1,20 @@
 import {addElements} from './addElements.js';
-import {fetchData} from './fetchData';
+import {fetchData} from './fetchData.js';
 import {populateSelect} from './populateSelect.js';
 import {fetchContributions} from './fetchContributions.js';
 
 window.addEventListener("load", main);
 
 async function main() {
+  const {selectBox}  = addElements()
+  
+    console.log('script.js')
     const url = 'https://api.github.com/orgs/HackYourFuture/repos?per_page=100';
 
     const listData = await fetchData(url);
     console.log(listData)
   
-    populateSelect(listData)
+    populateSelect(listData, selectBox)
   
     selectBox.addEventListener('input', (e) =>{
     section3.innerHTML = '';

@@ -1,4 +1,5 @@
-export function populateSelect(listData) {    
+
+export function populateSelect(listData, selectBox) {    
     listData.forEach (element => {
     const option = document.createElement('option');
     option.value = element.name;

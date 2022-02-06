@@ -96,4 +96,5 @@ const contNum = document.createElement('h2');
 contNum.setAttribute('style', 'background: white; color: black; text-align: center; width: 30px; height:25px; margin-top:20px; border-style: groove; border-radius:10% ; margin-bottom: 10px; margin-left: 50px; margin-right:5px')
 contDetails.appendChild(contNum);
 
+return {selectBox}
 }
