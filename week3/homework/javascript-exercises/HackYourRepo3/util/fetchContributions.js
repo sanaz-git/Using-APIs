@@ -1,10 +1,9 @@
 import {fetchData} from './fetchData.js';
-import {addElements} from './addElements.js';
 
-export async function fetchContributions(url2){
+export async function fetchContributions(url2,img2,contNum,contName,div2){
     try{
-        const elements = addElements() 
       const data = await fetchData(url2);
+      console.log(data)
       data.forEach(element => {
       img2.src = element.avatar_url;
       contName.textContent = element.login;

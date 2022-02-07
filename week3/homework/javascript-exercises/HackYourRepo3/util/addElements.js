@@ -7,15 +7,15 @@ img.alt = 'hyf'
 document.body.appendChild(header);
 header.appendChild(img);
 
-//create container class
-const div1 = document.createElement('div');
-div1.classList.add('container');
-document.body.appendChild(div1);
+// //create container class
+const container = document.createElement('div');
+container.classList.add('container');
+document.body.appendChild(container);
 
 //create section1
 const section1 = document.createElement('section');
 section1.classList.add('hyf');
-div1.appendChild(section1);
+container.appendChild(section1);
 
 const h1 = document.createElement('h1');
 h1.textContent = 'HYF Repositories'
@@ -34,7 +34,7 @@ option.textContent = '-- Choose an Option --';
 const div2 = document.createElement('div')
 div2.classList.add('card')
 div2.style.display= 'none'
-div1.appendChild(div2)
+container.appendChild(div2)
 
 //create section2
 const section2 = document.createElement('section');
@@ -44,25 +44,25 @@ div2.appendChild(section2);
 // details of section2
 const topic1 = document.createElement('h2');
 topic1.textContent = 'repository: '
-section2.appendChild(topic1);;
+section2.appendChild(topic1);
 const repository = document.createElement('span')
 topic1.appendChild(repository);
 
 const topic2 = document.createElement('h2');
 topic2.textContent = 'description: '
-section2.appendChild(topic2);;
+section2.appendChild(topic2);
 const description = document.createElement('span')
 topic2.appendChild(description);
 
 const topic3 = document.createElement('h2');
 topic3.textContent = 'forks: '
-section2.appendChild(topic3);;
+section2.appendChild(topic3);
 const forks = document.createElement('span')
 topic3.appendChild(forks);
 
 const topic4 = document.createElement('h2');
 topic4.textContent = 'updated: '
-section2.appendChild(topic4);;
+section2.appendChild(topic4);
 const updated = document.createElement('span')
 topic4.appendChild(updated);
 
@@ -96,5 +96,5 @@ const contNum = document.createElement('h2');
 contNum.setAttribute('style', 'background: white; color: black; text-align: center; width: 30px; height:25px; margin-top:20px; border-style: groove; border-radius:10% ; margin-bottom: 10px; margin-left: 50px; margin-right:5px')
 contDetails.appendChild(contNum);
 
-return {selectBox}
+return {selectBox, section3,repository,description,forks,updated,img2,contName,contNum,div2}
 }
