@@ -1,5 +1,4 @@
 import { addElements } from './addElements.js';
-// import { repoElements } from './repoElements.js';
 import { fetchData } from './fetchData.js';
 import { populateSelect } from './populateSelect.js';
 import { fetchContributions } from './fetchContributions.js';
@@ -7,7 +6,7 @@ import { fetchContributions } from './fetchContributions.js';
 window.addEventListener("load", main);
 
 async function main() {
-  const { selectBox,section3,repository,description,forks,updated,img2,contNum,contName,div2} = addElements()
+  const { selectBox,section3,repository,description,forks,updated,img2,contNum,contName,contDetails,div2} = addElements()
   const url = 'https://api.github.com/orgs/HackYourFuture/repos?per_page=100';
   console.log(selectBox,section3,repository,description,forks,updated)
   
@@ -18,7 +17,7 @@ async function main() {
 
 
   selectBox.addEventListener('input', (e) => {
-    // section3.innerHTML = '';
+    section3.innerHTML = '';
     let url2 = "";
 
     listData.forEach((element) => {
@@ -34,6 +33,7 @@ async function main() {
 
       }
     });
-    fetchContributions(url2,img2,contNum,contName,div2)
+    fetchContributions(url2,section3,img2,contNum,contName,contDetails,div2)
+      div2.style.display = 'block'
   });
 }

@@ -76,25 +76,6 @@ topic5.textContent = 'contributions'
 topic5.setAttribute('style' , 'padding:10px; border:1px solid lightgray; text-align:center; font-size:20px; color:gray')
 section3.appendChild(topic5)
 
-//details of section3
-const contDetails = document.createElement('div')
-contDetails.setAttribute('style', 'display:flex; flex:right')
-section3.appendChild(contDetails);
 
-const img2 = document.createElement('img');
-
-img2.setAttribute('style', 'position: relative; padding-top:5px; width: 20%; height: 20%; border-radius:50% ');
-contDetails.appendChild(img2);
-
-const contName = document.createElement('h2');
-
-contName.setAttribute('style', 'width:150px; text-align:center; height:25px; margin-top:20px; margin-left:30px; border-style: groove; border-radius:10%')
-contDetails.appendChild(contName);
-
-const contNum = document.createElement('h2');
-
-contNum.setAttribute('style', 'background: white; color: black; text-align: center; width: 30px; height:25px; margin-top:20px; border-style: groove; border-radius:10% ; margin-bottom: 10px; margin-left: 50px; margin-right:5px')
-contDetails.appendChild(contNum);
-
-return {selectBox, section3,repository,description,forks,updated,img2,contName,contNum,div2}
+return {selectBox, section3,repository,description,forks,updated,div2}
 }
