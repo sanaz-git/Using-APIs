@@ -76,6 +76,9 @@ topic5.textContent = 'contributions'
 topic5.setAttribute('style' , 'padding:10px; border:1px solid lightgray; text-align:center; font-size:20px; color:gray')
 section3.appendChild(topic5)
 
+//pagination
+const pagination =document.createElement('div')
+section3.appendChild(pagination)
 
-return {selectBox, section3,repository,description,forks,updated,div2}
+return {selectBox, section3,repository,description,forks,updated,div2,pagination}
 }

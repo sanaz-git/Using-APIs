@@ -1,7 +1,7 @@
 import { fetchData } from './fetchData.js';
 
 
-export async function fetchContributions(url2, section3) {
+export async function fetchContributions(url2, section3,pagination) {
   try {
     const topic5 = document.createElement('h2')
     topic5.textContent = 'contributions'
@@ -17,25 +17,20 @@ export async function fetchContributions(url2, section3) {
     console.log(arrayNumber)
     console.log(pageNumber)
 
-    function createButton() {
-      for (let i = 0; i < pageNumber; i++) {
+  
+    function createButton(pageNumber) {
+      for (let i = 1; i <= pageNumber; i++) {
         const buttons = document.createElement('button');
         buttons.innerText = i;
         buttons.classList.add('buttons')
-        document.body.appendChild(buttons)
+        pagination.appendChild(buttons)
+      
      }
     }
     createButton(pageNumber)
 
+  
 
-    
-
-    // pageNumber.forEach(Element => {
-    //   const button = document.createElement("button")
-    //   button.classList.add('button')
-    //   document.body.appendChild(button)
-
-    // });
 
     // data.forEach(element => {
 

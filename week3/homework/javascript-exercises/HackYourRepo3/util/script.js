@@ -6,7 +6,7 @@ import { fetchContributions } from './fetchContributions.js';
 window.addEventListener("load", main);
 
 async function main() {
-  const { selectBox, section3, repository, description, forks, updated, img2, contNum, contName, contDetails, div2 } = addElements()
+  const { selectBox, section3, repository, description, forks, updated, img2, contNum, contName, contDetails, div2} = addElements()
   const url = 'https://api.github.com/orgs/HackYourFuture/repos?per_page=100';
   console.log(selectBox, section3, repository, description, forks, updated)
 
@@ -14,7 +14,7 @@ async function main() {
   console.log(listData)
 
   populateSelect(listData, selectBox)
-
+ 
 
   selectBox.addEventListener('input', (e) => {
     section3.innerHTML = '';
