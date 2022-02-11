@@ -11,30 +11,60 @@ export async function fetchContributions(url2, section3) {
     const data = await fetchData(url2);
     console.log(data)
 
-    data.forEach(element => {
+    const arrayNumber = data.length
+    const pageNumber = Math.floor(arrayNumber / 5) + 1
 
-      const contDetails = document.createElement('div')
-      contDetails.setAttribute('style', 'display:flex; flex:right')
-      section3.appendChild(contDetails);
+    console.log(arrayNumber)
+    console.log(pageNumber)
 
-      const img2 = document.createElement('img');
-      img2.setAttribute('style', 'position: relative; padding-top:5px; width: 20%; height: 20%; border-radius:50% ');
-      contDetails.appendChild(img2);
+    function createButton() {
+      for (let i = 0; i < pageNumber; i++) {
+        const buttons = document.createElement('button');
+        buttons.innerText = i;
+        buttons.classList.add('buttons')
+        document.body.appendChild(buttons)
+     }
+    }
+    createButton(pageNumber)
 
-      const contName = document.createElement('h2');
-      contName.setAttribute('style', 'width:150px; text-align:center; height:25px; margin-top:20px; margin-left:30px; border-style: groove; border-radius:10%')
-      contDetails.appendChild(contName);
 
-      const contNum = document.createElement('h2');
-      contNum.setAttribute('style', 'background: white; color: black; text-align: center; width: 30px; height:25px; margin-top:20px; border-style: groove; border-radius:10% ; margin-bottom: 10px; margin-left: 50px; margin-right:5px')
-      contDetails.appendChild(contNum);
+    
 
-      img2.src = element.avatar_url;
-      contName.textContent = element.login;
-      contNum.textContent = element.contributions
+    // pageNumber.forEach(Element => {
+    //   const button = document.createElement("button")
+    //   button.classList.add('button')
+    //   document.body.appendChild(button)
 
-    })
+    // });
+
+    // data.forEach(element => {
+
+    //   const contDetails = document.createElement('div')
+    //   contDetails.setAttribute('style', 'display:flex; flex:right')
+    //   section3.appendChild(contDetails);
+
+    //   const img2 = document.createElement('img');
+    //   img2.setAttribute('style', 'position: relative; padding-top:5px; width: 20%; height: 20%; border-radius:50% ');
+    //   contDetails.appendChild(img2);
+
+    //   const contName = document.createElement('h2');
+    //   contName.setAttribute('style', 'width:150px; text-align:center; height:25px; margin-top:20px; margin-left:30px; border-style: groove; border-radius:10%')
+    //   contDetails.appendChild(contName);
+
+    //   const contNum = document.createElement('h2');
+    //   contNum.setAttribute('style', 'background: white; color: black; text-align: center; width: 30px; height:25px; margin-top:20px; border-style: groove; border-radius:10% ; margin-bottom: 10px; margin-left: 50px; margin-right:5px')
+    //   contDetails.appendChild(contNum);
+
+    //   img2.src = element.avatar_url;
+    //   contName.textContent = element.login;
+    //   contNum.textContent = element.contributions
+
+
+
+    // })
   } catch (error) {
     console.log(error)
   }
 }
+
+

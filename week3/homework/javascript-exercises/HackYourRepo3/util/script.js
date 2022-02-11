@@ -6,10 +6,10 @@ import { fetchContributions } from './fetchContributions.js';
 window.addEventListener("load", main);
 
 async function main() {
-  const { selectBox,section3,repository,description,forks,updated,img2,contNum,contName,contDetails,div2} = addElements()
+  const { selectBox, section3, repository, description, forks, updated, img2, contNum, contName, contDetails, div2 } = addElements()
   const url = 'https://api.github.com/orgs/HackYourFuture/repos?per_page=100';
-  console.log(selectBox,section3,repository,description,forks,updated)
-  
+  console.log(selectBox, section3, repository, description, forks, updated)
+
   const listData = await fetchData(url);
   console.log(listData)
 
@@ -22,8 +22,8 @@ async function main() {
 
     listData.forEach((element) => {
       if (element.name == e.target.value) {
-    
-     
+
+
         repository.textContent = element.name;
         description.textContent = element.description;
         forks.textContent = element.forks;
@@ -33,7 +33,9 @@ async function main() {
 
       }
     });
-    fetchContributions(url2,section3,img2,contNum,contName,contDetails,div2)
-      div2.style.display = 'block'
+    fetchContributions(url2, section3, img2, contNum, contName, contDetails, div2)
+    div2.style.display = 'block'
   });
+
+  
 }
