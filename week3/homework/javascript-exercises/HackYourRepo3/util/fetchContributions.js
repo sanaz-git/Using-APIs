@@ -23,12 +23,16 @@ export async function fetchContributions(url2, section3,pagination) {
         const buttons = document.createElement('button');
         buttons.innerText = i;
         buttons.classList.add('buttons')
-        pagination.appendChild(buttons)
+        section3.appendChild(buttons)
+
+        buttons.addEventListener('click', (e) => {
+          const buttonsText = e.target.innerText 
+          console.log(buttonsText)
+        })
       
      }
     }
     createButton(pageNumber)
-
   
 
 

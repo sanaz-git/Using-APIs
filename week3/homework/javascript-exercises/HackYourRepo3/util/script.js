@@ -35,6 +35,7 @@ async function main() {
     });
     fetchContributions(url2, section3, img2, contNum, contName, contDetails, div2)
     div2.style.display = 'block'
+ 
   });
 
   
