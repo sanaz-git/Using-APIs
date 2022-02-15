@@ -5,7 +5,7 @@ export async function fetchContributions(url2, section3) {
   try {
     const topic5 = document.createElement('h2')
     topic5.textContent = 'contributions'
-    topic5.setAttribute('style', 'padding:10px; border:1px solid lightgray; text-align:center; font-size:20px; color:gray; margin-right:30px; margin-bottom:25px')
+    topic5.setAttribute('style', 'padding:10px; border:1px solid lightgray; text-align:center; font-size:20px; color:gray; margin-right:15px; margin-bottom:25px')
     section3.appendChild(topic5)
 
     const data = await fetchData(url2);
