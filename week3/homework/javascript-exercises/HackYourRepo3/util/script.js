@@ -23,7 +23,6 @@ async function main() {
     listData.forEach((element) => {
       if (element.name == e.target.value) {
 
-
         repository.textContent = element.name;
         description.textContent = element.description;
         forks.textContent = element.forks;
