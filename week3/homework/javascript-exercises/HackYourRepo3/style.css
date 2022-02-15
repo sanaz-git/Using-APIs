@@ -79,10 +79,9 @@ img {
     text-align: center;
     background: crimson;
     margin-left:5px;
-    color: white;
+    color: white;  
+    margin-top: 20px;
 }
-
-
 
 @media only screen and (max-width:900px) {
     h2 {
