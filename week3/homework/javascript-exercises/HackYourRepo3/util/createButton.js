@@ -25,21 +25,25 @@ export function createButton(pageNumber,section3,contDetails,data) {
 
         let paginatedItems = data.slice(start, end);       
 
-        paginatedItems.forEach(element => {        
+        paginatedItems.forEach(element => {
+          const containsDiv = document.createElement('div')
+          containsDiv.setAttribute('style', 'display:flex  ; flex-direction:row;')
+          contDetails.appendChild(containsDiv)  
+            
           const img2 = document.createElement('img');
           img2.src = element.avatar_url;
-          img2.setAttribute('style', 'position: relative; padding-top:5px; width: 20%; height: 20%; border-radius:50% ');
-          contDetails.appendChild(img2);
+          img2.setAttribute('style', 'position: relative; padding-top:5px; width: 25%; height: 60%; border-radius:50% ; margin-left:25px;');
+          containsDiv.appendChild(img2);
 
           const contName = document.createElement('h2');
           contName.textContent = element.login;
-          contName.setAttribute('style', 'width:150px; text-align:center; height:25px; margin-top:20px; margin-left:20px; border-style: groove; border-radius:10%')
-          contDetails.appendChild(contName);
+          contName.setAttribute('style', 'width:150px; text-align:center; height:25px; margin-left:30px; border-style: groove; border-radius:10%; margin-top:20px')
+          containsDiv.appendChild(contName);
 
           const contNum = document.createElement('h2');
           contNum.textContent = element.contributions
-          contNum.setAttribute('style', 'background: white; color: black; text-align: center; width: 30px; height:25px; margin-top:20px; border-style: groove; border-radius:10% ; margin-bottom: 10px; margin-left: 20px; margin-right:5px')
-          contDetails.appendChild(contNum);
+          contNum.setAttribute('style', 'background: white; color: black; text-align: center; width: 30px; height:25px;border-style: groove; border-radius:10% ; margin-left: 40px; margin-right:10px;margin-top:20px ')
+          containsDiv.appendChild(contNum);
 
         });
 
