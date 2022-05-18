@@ -18,51 +18,59 @@
 // Try and avoid using global variables. As much as possible, try and use function
 // parameters and return values to pass data back and forth.
 
-window.addEventListener("load", main);
+window.addEventListener('load', main);
 
-document.body.setAttribute('style', 'background:#F2D600 ; text-align: center; margin-top: 5%; font-family: Arial, Helvetica, sans-serif');
+document.body.setAttribute(
+  'style',
+  'background-image: linear-gradient(to right, #fc5c7d, #6a82fb); text-align: center; margin-top: 5%; font-family: Arial, Helvetica, sans-serif',
+);
 
 function main() {
-  const url = "https://pokeapi.co/api/v2/pokemon/";
+  const url = 'https://pokeapi.co/api/v2/pokemon/';
 
   //h1 element
-  const h1 = document.createElement("h1");
+  const h1 = document.createElement('h1');
   document.body.appendChild(h1);
-  h1.textContent = "Pokemon Images";
+  h1.textContent = 'Pokemon Images';
 
   //buttons element
-  const btn1 = document.createElement("button");
+  const btn1 = document.createElement('button');
   document.body.appendChild(btn1);
-  btn1.textContent = "Get Pokemon";
+  btn1.textContent = 'Get Pokemon';
+  btn1.classList.add('btn1');
 
   //select element
-  const select = document.createElement("select");
+  const select = document.createElement('select');
+  const option = document.createElement('option');
+  select.appendChild(option);
   document.body.appendChild(select);
-  select.textContent = "Choose pokemon";
+  option.innerText = 'Choose Pokemon';
+  select.classList.add('select');
 
   //image element
-  const img = document.createElement("img");
+  const img = document.createElement('img');
   document.body.appendChild(img);
-  img.setAttribute('style', 'display: block; width: 20%; margin-left: auto; margin-right: auto');
-
+  img.setAttribute(
+    'style',
+    'display: block; width: 20%; margin-left: auto; margin-right: auto',
+  );
 
   //When button is clicked
-  btn1.addEventListener("click", fetchAndPopulatePokemon);
+  btn1.addEventListener('click', fetchAndPopulatePokemon);
 
   // Add options to select
   async function fetchAndPopulatePokemon() {
     try {
       const data = await fetchData(url);
       data.results.forEach((element) => {
-        const option = document.createElement("option");
+        const option = document.createElement('option');
         option.value = element.name;
         option.innerHTML = element.name;
         select.appendChild(option);
       });
       // get img
-      select.addEventListener("input", async (e) => {
-
-        let url2 = "";
+      select.addEventListener('input', async (e) => {
+        let url2 = '';
         data.results.forEach((element) => {
           if (element.name == e.target.value) {
             url2 = element.url;

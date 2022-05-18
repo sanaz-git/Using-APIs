@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  background: #f34646;
+  background: linear-gradient(to left, #ff0000 0%, #000000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Segoe Print', Times, serif;
+
+  padding-bottom: 30px;
+}
+
+.btn1 {
+  font-family: 'Segoe Print', Times, serif;
+  width: 2vm;
+  padding: 2px;
+  border: 2px solid #5659e9;
+  border-radius: 5px;
+  background-color: #7d7eec;
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: #610000;
+}
+
+.select {
+  font-family: 'Segoe Print', Times, serif;
+  width: 2vm;
+  padding: 2px;
+  border: 2px solid #5659e9;
+  border-radius: 5px;
+  background-color: #7d7eec;
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: #610000;
+}
