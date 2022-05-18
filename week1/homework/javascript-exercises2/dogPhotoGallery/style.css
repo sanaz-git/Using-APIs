@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  padding-top: 30px;
+}
+
+#btn1 {
+  background-color: white;
+  font-family: zen loop, cursive;
+  font-size: 15px;
+  width: 160px;
+  height: 40px;
+  padding: 5px;
+  margin-top: 30px;
+  border-radius: 10px;
+  border: none;
+  display: inline-block;
+}
+
+#btn2 {
+  background-color: white;
+  font-family: zen loop, cursive;
+  font-size: 15px;
+  width: 160px;
+  height: 40px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  display: inline-block;
+}
