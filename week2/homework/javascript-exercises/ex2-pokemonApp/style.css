@@ -18,24 +18,24 @@ h1 {
   font-family: 'Segoe Print', Times, serif;
   width: 2vm;
   padding: 2px;
-  border: 2px solid #5659e9;
+  border: 2px solid #420617;
   border-radius: 5px;
-  background-color: #7d7eec;
+  background-color: #882b45;
   font-size: 20px;
   margin-right: 10px;
   cursor: pointer;
-  color: #610000;
+  font-weight: bold;
 }
 
 .select {
   font-family: 'Segoe Print', Times, serif;
   width: 2vm;
   padding: 2px;
-  border: 2px solid #5659e9;
+  border: 2px solid #420617;
   border-radius: 5px;
-  background-color: #7d7eec;
+  background-color: #882b45;
   font-size: 20px;
   margin-right: 10px;
   cursor: pointer;
-  color: #610000;
+  font-weight: bold;
 }

@@ -22,7 +22,7 @@ window.addEventListener('load', main);
 
 document.body.setAttribute(
   'style',
-  'background-image: linear-gradient(to right, #fc5c7d, #6a82fb); text-align: center; margin-top: 5%; font-family: Arial, Helvetica, sans-serif',
+  'background:#f5efef; text-align: center; margin-top: 5%; font-family: Arial, Helvetica, sans-serif',
 );
 
 function main() {
