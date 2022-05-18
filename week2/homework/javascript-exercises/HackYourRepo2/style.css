@@ -1,98 +1,97 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #313267;
+  background-color: #313267;
 }
 
 img {
-    max-width: 150px;
-    display: block;
-    padding-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: 150px;
+  max-height: 150px;
+  display: block;
+  margin: auto;
 }
 
 .container {
-    background-color: rgb(206, 204, 204);
-    margin: auto;
-    width: 70%;
-    padding-bottom: 20px;
+  background-color: rgb(206, 204, 204);
+  margin: auto;
+  width: 70%;
+  padding-bottom: 20px;
 }
 
 /* id change to class */
 
 .hyf {
-    display: flex;
-    margin-bottom: 10px;
-    width: 100%;
-    padding: 30px;
-    font-size: 10px;
-    border: 1px solid black;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: left;
-    background-color: #4051B6;
-    color: white;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 30px;
+  font-size: 10px;
+  border: 1px solid black;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+  background-color: #4051b6;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /* id change to class */
 
 .selectClass {
-    margin-left: 20px;
-    width: 40%;
+  margin-left: 20px;
+  width: 40%;
 }
 
 /* id change to class */
 
 .repo {
-    margin: auto;
-    margin-top: 0px;
-    width: 45%;
-    background-color: white;
-    color: black;
-    padding: 10px;
-    margin-left: 30px;
-    font-size: 10px;
-    float: left;
+  margin: auto;
+  margin-top: 0px;
+  width: 45%;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  margin-left: 30px;
+  margin-right: 5px;
+  font-size: 10px;
+  float: left;
 }
 
 /* id change to class */
 
 .contribution {
-    margin: auto;
-    flex-direction: row;
-    margin-top: 0x;
-    width: 45%;
-    background-color: white;
-    color: black;
-    padding: 10px;
-    margin-right: 30px;
-    font-size: 10px;
-    overflow: hidden;
+  margin: auto;
+  flex-direction: row;
+  margin-top: 0x;
+  width: 45%;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  margin-right: 30px;
+  font-size: 10px;
+  overflow: hidden;
 }
 
-@media only screen and (max-width:900px) {
-    h2 {
-        font-size: 2.5vw;
-        margin-left: 35px;
-    }
-    .details h2 {
-        margin-left: 5px;
-    }
-    .contribution {
-        width: 100%;
-    }
-    .repo {
-        width: 100%;
-        margin-left: 0px;
-        margin-bottom: 10px;
-    }
+@media only screen and (max-width: 550px) {
+  h2 {
+    font-size: 2.5vw;
+    margin-left: 35px;
+  }
+  .details h2 {
+    margin-left: 5px;
+  }
+  .contribution {
+    width: 100%;
+  }
+  .repo {
+    width: 100%;
+    margin-left: 0px;
+    margin-bottom: 10px;
+  }
 }
-
