@@ -26,10 +26,7 @@ export function createButton(pageNumber, section3, contDetails, data) {
 
       paginatedItems.forEach((element) => {
         const containsDiv = document.createElement('div');
-        containsDiv.setAttribute(
-          'style',
-          'display:flex; flex:right; padding: 10px ',
-        );
+        containsDiv.setAttribute('style', 'display:flex;  padding: 10px ');
         containsDiv.style.padding = '10px';
         contDetails.appendChild(containsDiv);
 
@@ -37,7 +34,7 @@ export function createButton(pageNumber, section3, contDetails, data) {
         img2.src = element.avatar_url;
         img2.setAttribute(
           'style',
-          ' display:block , width: 50px; height: 50px; border-radius:50%',
+          ' display:block , padding-top:5px; width: 15%; height: 15%; border-radius:50%; margin-right:20px; margin-left:30px',
         );
         containsDiv.appendChild(img2);
 
@@ -45,7 +42,7 @@ export function createButton(pageNumber, section3, contDetails, data) {
         contName.textContent = element.login;
         contName.setAttribute(
           'style',
-          'width:150px; text-align:center; height:25px; padding-bottom:5px; border-style: groove; border-radius:10%; margin-top:20px; margin-left:20px',
+          'width:140px; text-align:center; height:25px; padding-bottom:5px; border-style: groove; border-radius:10%; margin-top:10px; margin-left:10%',
         );
         containsDiv.appendChild(contName);
 
@@ -53,7 +50,7 @@ export function createButton(pageNumber, section3, contDetails, data) {
         contNum.textContent = element.contributions;
         contNum.setAttribute(
           'style',
-          'background: white; color: black; text-align: center; width: 30px; height:25px;padding-bottom:5px;border-style: groove; border-radius:10% ; margin-left: 40px; margin-right:10px;margin-top:20px ',
+          'background: white; color: black; text-align: center; width: 30px; height:25px;padding-bottom:5px;border-style: groove; border-radius:10% ; margin-left: 10%; margin-right:10px;margin-top:10px ',
         );
         containsDiv.appendChild(contNum);
       });
