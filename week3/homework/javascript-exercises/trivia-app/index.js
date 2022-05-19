@@ -1,10 +1,8 @@
-
-window.addEventListener("load", main);
+window.addEventListener('load', main);
 
 async function main() {
-  const url = "https://opentdb.com/api.php?amount=5";
+  const url = 'https://opentdb.com/api.php?amount=5';
   const listData = await fetchData(url);
-
 
   //create container
   const container = document.createElement('div');
@@ -18,12 +16,13 @@ async function main() {
 
   const topic1 = document.createElement('h1');
   topic1.classList.add('topic1');
-  topic1.textContent = 'Lets play some trivia'
-  section1.appendChild(topic1)
+  topic1.textContent = 'Lets play some trivia';
+  section1.appendChild(topic1);
 
   const topic2 = document.createElement('h2');
   topic2.classList.add('topic2');
-  topic2.textContent = 'try your best to figure out the answer.If you really have no clue, click on the question to reveal the answer...';
+  topic2.textContent =
+    'try your best to figure out the answer.If you really have no clue, click on the question to reveal the answer...';
   section1.appendChild(topic2);
 
   //create section2
@@ -31,41 +30,41 @@ async function main() {
   section2.classList.add('section2');
   container.appendChild(section2);
 
-  questionAnswer(listData)
+  questionAnswer(listData);
 
   function questionAnswer(listData) {
-    listData.results.forEach(element => {
-
-      //convert question to standard characters
-      const convertQuestion = element.question;
-
-      function convert(convertQuestion) {
-        convertQuestion = convertQuestion.replace(/&#039;/g, "'");
-        convertQuestion = convertQuestion.replace(/&quot;/g, '"');
-        return convertQuestion;
+    listData.results.forEach((element) => {
+      // ! Decode HTML-entities
+      function decodeHTMLEntities(text) {
+        var textArea = document.createElement('textarea');
+        textArea.innerHTML = text;
+        return textArea.value;
       }
+
+      const convertQuestion = element.question;
+      const convertAnswer = element.correct_answer;
 
       //create question
       const questions = document.createElement('h1');
       questions.classList.add('questions');
-      questions.textContent = convert(convertQuestion) //call convert function here
+      questions.textContent = decodeHTMLEntities(convertQuestion); //call convert function here
       section2.appendChild(questions);
 
-      //create answer 
+      //create answer
       const answer = document.createElement('h1');
       answer.classList.add('answer');
-      answer.textContent = element.correct_answer;
+      answer.textContent = decodeHTMLEntities(convertAnswer); //call convert function here
       section2.appendChild(answer);
       answer.setAttribute('style', 'display:none');
 
       //show and hide answer
       questions.addEventListener('click', () => {
         if (answer.style.display == 'block') {
-          answer.style.display = 'none'
+          answer.style.display = 'none';
         } else {
-          answer.style.display = 'block'
+          answer.style.display = 'block';
         }
-      })
+      });
     });
   }
 
@@ -76,7 +75,7 @@ async function fetchData(url) {
   try {
     let response = await fetch(url);
     let data = await response.json();
-    return data
+    return data;
   } catch (error) {
     console.log(error);
   }
