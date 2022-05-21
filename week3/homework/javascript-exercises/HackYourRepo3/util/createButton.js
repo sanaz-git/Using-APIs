@@ -41,7 +41,7 @@ export function createButton(pageNumber, section3, contDetails, data) {
         contName.textContent = element.login;
         contName.setAttribute(
           'style',
-          'width:140px; text-align:center; height:25px; padding-bottom:5px; border-style: groove; border-radius:10%; margin-top:10px; margin-left:10%',
+          'width:140px; font-size: 1.2vw; text-align:center; height:25px; padding-bottom:5px; border-style: groove; border-radius:10%; margin-top:10px; margin-left:10%',
         );
         containsDiv.appendChild(contName);
 
@@ -49,7 +49,7 @@ export function createButton(pageNumber, section3, contDetails, data) {
         contNum.textContent = element.contributions;
         contNum.setAttribute(
           'style',
-          'background: white; color: black; text-align: center; width: 30px; height:25px;padding-bottom:5px;border-style: groove; border-radius:10% ; margin-left: 10%; margin-right:10px;margin-top:10px ',
+          'background: white;font-size: 1.2vw; color: black; text-align: center; width: 30px; height:25px;padding-bottom:5px;border-style: groove; border-radius:10% ; margin-left: 10%; margin-right:10px;margin-top:10px ',
         );
         containsDiv.appendChild(contNum);
       });
