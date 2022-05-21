@@ -37,6 +37,7 @@ img {
   background-color: #4051b6;
   color: white;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  max-height: 50%;
 }
 
 .selectClass {
@@ -93,6 +94,7 @@ img {
   }
   .contribution {
     min-width: 100%;
+    min-height: 200px;
   }
   .repo {
     width: 40%;

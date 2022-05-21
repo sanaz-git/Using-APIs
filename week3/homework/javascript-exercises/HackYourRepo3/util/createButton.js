@@ -8,19 +8,18 @@ export function createButton(pageNumber, section3, contDetails, data) {
     buttons.addEventListener('click', (e) => {
       contDetails.innerHTML = '';
 
-      //show page number we clock
+      //show page number we click
       const buttonsText = e.target.innerText;
 
-      const pageRange = buttonsText * 5 - 5;
+      console.log(buttonsText);
 
-      // console.log(buttonsText)
-      // console.log(pageRange)
+      const pageRange = buttonsText * 5 - 5;
 
       const start = pageRange;
       const end = start + 5;
 
-      // console.log(start)
-      // console.log(end)
+      console.log(start);
+      console.log(end);
 
       let paginatedItems = data.slice(start, end);
 
