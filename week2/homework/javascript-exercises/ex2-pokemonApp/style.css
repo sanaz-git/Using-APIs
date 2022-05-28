@@ -5,37 +5,35 @@
 }
 
 h1 {
-  background: #f34646;
-  background: linear-gradient(to left, #ff0000 0%, #000000 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* color: #c73961; */
   font-family: 'Segoe Print', Times, serif;
-
   padding-bottom: 30px;
+  color: #c73961;
 }
 
-.btn1 {
-  font-family: 'Segoe Print', Times, serif;
-  width: 2vm;
-  padding: 2px;
-  border: 2px solid #420617;
-  border-radius: 5px;
-  background-color: #882b45;
-  font-size: 20px;
-  margin-right: 10px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
+.btn1,
 .select {
   font-family: 'Segoe Print', Times, serif;
   width: 2vm;
   padding: 2px;
-  border: 2px solid #420617;
+  border: 1px solid #c73961;
   border-radius: 5px;
-  background-color: #882b45;
+  box-shadow: 5px 10px #c73961;
+  background-color: #f5c8c8;
   font-size: 20px;
   margin-right: 10px;
   cursor: pointer;
   font-weight: bold;
+  color: #c73961;
+}
+
+.btn1:hover {
+  background-color: #ec1b56;
+  color: white;
+  opacity: 0.6;
+}
+.select:hover {
+  background-color: #ec1b56;
+  color: white;
+  opacity: 0.6;
 }
