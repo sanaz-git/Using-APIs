@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+ 
+  <head>
+  
+     <style>
+       #container{
+         background-color: black;
+         opacity:0.9;
+         height:100vh;
+         width:100%;
+         position:fixed;
+         top:0;
+         left:0;
+         transition:1s;
+         font-family:'Courier New',Courier,monospace;
+         transform:scale(0);
+         overflow: auto;
+       }
+       
+       #close{
+         text-decoration:none;
+         color:#cccccc;
+         font-size:50px;
+         position:fixed;
+         top:20px;
+         right:20px;
+       }
+
+       #close:hover{
+         font-size: 90px;
+         transition:1s;
+         transform:rotate(360deg);
+       }
+
+       .form{
+         background-color: azure;
+         font-family:'Courier New', Courier, monospace;
+         margin:100px auto;
+         width:30vw;
+         padding:30px;
+         box-shadow: 10px 10px 5px gray;
+         border-radius:15px;
+         color:gray;
+       }
+       input{
+           width:28vw;
+           padding:10px;
+           border-radius:5px;
+           border:none;
+           box-shadow: 10px 10px 20px lightgray;
+           font-size:20px;
+       }
+       input:focus{
+           outline: none;
+       }
+
+     .button{
+        text-align: center;
+     }
+
+     #list{
+         width:15vw;
+         background-color: rgb(44, 159, 253);
+         padding:10px;
+         font-size: 20px;
+         border:3px solid rgb(70, 177, 248);
+         border-radius:5px;
+         color:lightgray;;
+         margin:0 auto;
+         cursor:pointer;
+     }
+     #submit{
+         
+         background-color:rgb(250, 65, 65);
+         padding:10px;
+         font-size: 20px;
+         border:none;
+         border-radius:5px;
+         color:lightgray;;
+         margin:0 auto;
+         display: inline;
+         cursor:pointer;
+     }
+     #submit:focus{
+           outline: none;
+       }
+     #submit:focus{
+        background-color:aquamarine;
+        color:white;
+       }
+
+       #yourSites div{
+         background-color: gray;
+         color:white;
+         font-family:'Courier New', Courier, monospace;
+         margin:10px auto;
+         width:40vw;
+         padding:10px;
+         border-radius:15px;
+         border:2px solid azure;
+       }
+       #yourSites a{
+         text-decoration: none;
+         background-color: rgb(44, 159, 253);
+         font-size: 20px;
+         border:3px solid rgb(70, 177, 248);
+         border-radius:5px;
+         color:lightgray;
+         margin-left:10px;
+       }
+
+       #yourSites button{
+         background-color:rgb(250, 65, 65);
+         font-size: 20px;
+         border:none;
+         border-radius:5px;
+         color:lightgray;;
+         margin-left:10px;
+         cursor:pointer;
+       }
+
+       .light{
+         width:20px;
+         height:20px;
+         border-radius:50%;
+         background-color: rgb(255, 83, 83);
+         margin:auto;
+         display:none;
+       }
+     </style> 
+ 
+  </head>
+ 
+  <body onload='Display()'>
+    <div class='light' id='light'></div>
+     
+    <div class='form'>
+        <h3>Please insert the Name and the URL of the website</h3>
+     <form action='' method="" id='form'>
+        <p> 
+            <input type='text' placeholder="Name" name='WebsiteName' id='WebsiteName'>
+        </p>    
+        <p> 
+            <input type="url" name="url" id='url' placeholder="URL">
+        </p>  
+        <p class='button'> 
+            <button type='submit' id='submit'>Insert</button>
+            <button type='button' id='list'>Watch your list</button>
+        </p>    
+     </form>
+    </div>
+     <div id='container'>
+      
+       <p><a href='#' id='close'>&times;</a></p>
+       
+       <div id='yourSites'>
+         
+       </div>
+     </div>
+  
+  <script>
+     document.getElementById('list').onclick=function(){
+     document.getElementById('container').style.transform='scale(1)'
+     }
+     document.getElementById('close').onclick=function(){
+       document.getElementById('container').style.transform='scale(0)'
+     }
+     
+     //listen for form
+     document.getElementById('form').addEventListener('submit',MemorizeMarkers)
+    function MemorizeMarkers(x){
+         //variables
+
+         var Name=document.getElementById('WebsiteName').value;
+         var URL=document.getElementById('url').value;
+        //prevent default
+         x.preventDefault()
+
+          // check validation 
+
+         if(!Name & URL){
+           alert('Please Insert the Site Name and URL')
+           return false;
+         }else if (!Name){
+          alert('Please Insert the Site Name')
+          return false;
+         }else if(!URL){
+          alert('Please Insert the URL')
+          return false;
+         }else{
+           showlight()
+           setTimeout(hidelight,1000)
+         }
+
+         //storage the mrkers even if we closed the browser
+
+         var markers=
+             {
+             SiteName:Name,
+             SiteUrl:URL
+             }
+            
+
+        if(localStorage.getItem('SiteMarkers')===null){
+            var SiteMarkers=[]
+            SiteMarkers.push(markers)
+        
+         var myJSON=JSON.stringify(SiteMarkers)
+         localStorage.setItem('SiteMarkers',myJSON)
+        }else{
+          //get sitemarkers from local storage as an object
+          var get=JSON.parse(localStorage.getItem('SiteMarkers'))
+          //Push it again to the array
+          get.push(markers)
+          //convert it to a string
+          var myJSON=JSON.stringify(get)
+          //display it as a string
+          localStorage.setItem('SiteMarkers',myJSON)
+        }
+          //redisplay again to prevent display the result after reloading reloading the page
+         Display()
+         document.getElementById('form').reset()
+     }
+
+     //delete sitemark function
+
+     function Delete(siteUrl){
+      var SiteMarks=JSON.parse(localStorage.getItem('SiteMarkers'))
+      for(var i=0;i<SiteMarks.length;i++){
+        if(SiteMarks[i].SiteUrl==siteUrl){
+          SiteMarks.splice(i,1)
+        }
+      }
+      //reset localstorage
+      localStorage.setItem('SiteMarkers',JSON.stringify(SiteMarks))
+     //redisplay again to prevent display the result after reloading reloading the page
+     Display()
+     }
+
+  //function to display them in the overlayed page
+     function Display(){
+       var SiteMarks=JSON.parse(localStorage.getItem('SiteMarkers'))
+       var results=document.getElementById('yourSites')
+       results.innerHTML='';
+       for(var i=0;i<SiteMarks.length;i++){
+        var siteName=SiteMarks[i].SiteName
+        var siteUrl=SiteMarks[i].SiteUrl
+           results.innerHTML+='<div>'+'<h3>'+siteName+'<a href="'+siteUrl+'" target="_blank">Go</a>'+'<button onclick="Delete(\''+siteUrl+'\')" target="_blank">Delete</button>'+'</h3>'+'</div>'
+       }
+
+     }
+  
+   //functions to appear and disappear the red ball
+   function showlight(){
+      document.getElementById('light').style.display='block'
+   }
+
+   function hidelight(){
+      document.getElementById('light').style.display='none'
+   }
+
+   
+
+  </script>
+  
+  </body>
+</html>   
